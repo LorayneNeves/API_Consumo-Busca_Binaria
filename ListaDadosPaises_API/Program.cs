@@ -29,18 +29,33 @@ switch (menu)
                 string responseBody = await response.Content.ReadAsStringAsync();
 
                 // Fazendo o parsing da resposta JSON
-
                 List<DadosPais> dadosPaises = Newtonsoft.Json.JsonConvert.DeserializeObject<List<DadosPais>>(responseBody);
-                // Exibindo os dados dos paises
-
+                
+                // Exibindo os dados dos paises                             
+                foreach (var item in dadosPaises)
+                {
+                    if (dados.recebeMoeda == "euro" || dados.recebeMoeda == "EURO")
+                    {
+                        Console.WriteLine("Nome nativo oficial do pais: " + item.name.nativeName.cat.official);
+                        Console.WriteLine("Nome nativo do pais: " + item.name.nativeName.cat.common);
+                    }
+                    else if (dados.recebeMoeda == "dollar" || dados.recebeMoeda == "DOLLAR")
+                    {
+                        Console.WriteLine("Nome nativo oficial do pais: " + item.name.nativeName.cal.official);
+                        Console.WriteLine("Nome nativo do pais: " + item.name.nativeName.cal.common);
+                    }
+                    else if (dados.recebeMoeda == "real" || dados.recebeMoeda == "REAL")
+                    {
+                        Console.WriteLine("Nome nativo oficial do pais: " + item.name.nativeName.por.official);
+                        Console.WriteLine("Nome nativo do pais: " + item.name.nativeName.por.common);
+                    }
+                    break;
+                }
                 foreach (var item in dadosPaises)
                 {
                     Console.WriteLine("Nome do pais : " + item.name.common);
                     Console.WriteLine("Nome oficial: " + item.name.official);
                     Console.WriteLine("Capital :" + item.capital.FirstOrDefault());
-                    break;
-                    Console.WriteLine("Nome nativo do pais: " + item.name.nativeName.por.common);
-                    Console.WriteLine("Nome nativo do pais: " + item.name.nativeName.por.official);
                 }
                 Console.WriteLine();
             }
@@ -54,7 +69,7 @@ switch (menu)
             }
         }
         Console.WriteLine("Enter..");
-        //Console.ReadLine();
+        Console.ReadLine();
         goto Menu;
     case 2:
         Console.WriteLine("Digite o continente para consultar os países e suas moedas:");
