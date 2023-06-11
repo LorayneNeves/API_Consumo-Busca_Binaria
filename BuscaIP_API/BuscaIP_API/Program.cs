@@ -14,7 +14,7 @@ using (HttpClient client = new HttpClient())
     {
         DadosIP dados1 = new DadosIP();
 
-        string url = "https://ipapi.co/" + dados1.recebeIP + "/json/";
+        string url = $"https://ipapi.co/{dados1.recebeIP}/json/";
 
         HttpResponseMessage response = await client.GetAsync(url);
 
