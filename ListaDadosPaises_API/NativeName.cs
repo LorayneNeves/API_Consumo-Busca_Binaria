@@ -10,6 +10,5 @@ namespace API_ListaDadosPaises
     public class NativeName
     {
         public Por por { get; set; }
-
     }
 }
