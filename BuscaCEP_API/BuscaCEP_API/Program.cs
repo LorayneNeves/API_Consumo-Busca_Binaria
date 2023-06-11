@@ -4,38 +4,30 @@ using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using BuscaCEP_API;
 
-DadosCEP dados = new DadosCEP();
-Console.WriteLine("Digite o CEP :");
-dados.recebeCEP = Console.ReadLine();
-
 using (HttpClient client = new HttpClient())
 {
     try
     {
-        DadosCEP dados1 = new DadosCEP();
+        DadosCEP dados = new DadosCEP();
 
-        string url = "https://ipapi.co/" + dados1.recebeCEP + "/json/";
+        Console.WriteLine("Digite o CEP :");
+        dados.recebeCEP = Console.ReadLine();
+        string url = "https://ipapi.co/" + dados.recebeCEP + "/json/";
 
         HttpResponseMessage response = await client.GetAsync(url);
-
         response.EnsureSuccessStatusCode();
-
         string responseBody = await response.Content.ReadAsStringAsync();
-
-        // Fazendo o parsing da resposta JSON
-
         DadosCEP DadosIP = Newtonsoft.Json.JsonConvert.DeserializeObject<DadosCEP>(responseBody);
 
-        // Exibindo os dados do dados do CEP
-        Console.WriteLine($"IP: {dados.cep}");
-        Console.WriteLine($"REDE: {dados.logradouro}");
-        Console.WriteLine($"VERSÃO: {dados.complemento}");
-        Console.WriteLine($"CIDADE: {dados.bairro}");
-        Console.WriteLine($"REGIÃO: {dados.localidade}");
-        Console.WriteLine($"CODIGO REGIÃO: {dados.uf}");
-        Console.WriteLine($"PAIS: {dados.ibge}");
-        Console.WriteLine($"NOME PAIS: {dados.ddd}");
-        Console.WriteLine($"NOME CODIGO: {dados.siafi}");
+        Console.WriteLine($"CEP: {dados.cep}");
+        Console.WriteLine($"Logradouro: {dados.logradouro}");
+        Console.WriteLine($"complemento: {dados.complemento}");
+        Console.WriteLine($"bairro: {dados.bairro}");
+        Console.WriteLine($"localidade: {dados.localidade}");
+        Console.WriteLine($"UF: {dados.uf}");
+        Console.WriteLine($"IBGE: {dados.ibge}");
+        Console.WriteLine($"DDD: {dados.ddd}");
+        Console.WriteLine($"SIAFI: {dados.siafi}");
     }
     catch (HttpRequestException ex)
     {
