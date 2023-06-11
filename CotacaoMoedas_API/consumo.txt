@@ -1,0 +1,5 @@
+https://economia.awesomeapi.com.br/json/daily/USD-BRL/?start_date=20180901&end_date=20180930
+https://economia.awesomeapi.com.br/json/daily/USD-BRL/15
+https://economia.awesomeapi.com.br/last/USD-BRL
+https://docs.awesomeapi.com.br/api-de-moedas
+https://json2csharp.com/
