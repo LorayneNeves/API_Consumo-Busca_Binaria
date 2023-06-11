@@ -76,27 +76,27 @@ switch (menu)
 
                 foreach (var item in dadosContinente)
                 {
-                    if (dados.recebeRegiao == "america")
+                    if (dados.recebeRegiao == "america" || dados.recebeRegiao == "America")
                     {
                         Console.WriteLine(item.currencies.BBD.name + ": " + item.currencies.BBD.symbol);
                         Console.WriteLine("Capital :" + item.capital.FirstOrDefault());
                     }
-                    else if (dados.recebeRegiao == "oceania")
+                    else if (dados.recebeRegiao == "oceania" || dados.recebeRegiao == "Oceania")
                     {
                         Console.WriteLine(item.currencies.USD.name + " " + item.currencies.USD.symbol);
                         Console.WriteLine("Capital :" + item.capital.FirstOrDefault());
                     }
-                    else if (dados.recebeRegiao == "africa")
+                    else if (dados.recebeRegiao == "africa" || dados.recebeRegiao == "Africa")
                     {
                         Console.WriteLine(item.currencies.MWK.name + " " + item.currencies.MWK.symbol);
                         Console.WriteLine("Capital :" + item.capital.FirstOrDefault());
                     }
-                    else if (dados.recebeRegiao == "asia")
+                    else if (dados.recebeRegiao == "asia" || dados.recebeRegiao == "Asia")
                     {
                         Console.WriteLine(item.currencies.JOD.name + " " + item.currencies.JOD.symbol);
                         Console.WriteLine("Capital :" + item.capital.FirstOrDefault());
                     }
-                    else if (dados.recebeRegiao == "europe")
+                    else if (dados.recebeRegiao == "europe" || dados.recebeRegiao == "Europe")
                     {
                         Console.WriteLine(item.currencies.RSD.name + " " + item.currencies.RSD.symbol);
                         Console.WriteLine("Capital :" + item.capital.FirstOrDefault());
