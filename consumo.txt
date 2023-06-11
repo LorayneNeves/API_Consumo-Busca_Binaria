@@ -1,0 +1,24 @@
+Consultas
+https://json2csharp.com/
+https://www.newtonsoft.com/json
+https://www.devmedia.com.br/servicos-restful-verbos-http/37103
+https://http.cat/[status_code]
+
+APIs Utilizadas
+
+CEP:
+https://cep.awesomeapi.com.br/json/cep
+https://viacep.com.br/ws/cep/json
+
+IP API:
+https://ipapi.co/json
+
+Moedas/Região API:
+https://restcountries.com/v3.1/currency/%7bmoeda%7d?fields=name,capital,currencies
+https://restcountries.com/v3.1/region/%7bregion%7d?fields=name,capital,currencies
+
+Cotação de moedas API:
+https://docs.awesomeapi.com.br/api-de-moedas
+https://economia.awesomeapi.com.br/json/daily/USD-BRL/?start_date=20180901&end_date=20180930
+https://economia.awesomeapi.com.br/json/daily/USD-BRL/15
+https://economia.awesomeapi.com.br/last/USD-BRL
