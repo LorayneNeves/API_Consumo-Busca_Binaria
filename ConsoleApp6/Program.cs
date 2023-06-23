@@ -1,9 +1,10 @@
 ﻿using System.Text;
-using ConsoleApp6;
+using CriandoAPI_Revisao;
 
 menu:
 Console.WriteLine("1 - Para ver lista de alunos");
 Console.WriteLine("2 - Para adicionar a lista de alunos");
+Console.WriteLine("3 - Sair");
 int menu = int.Parse(Console.ReadLine());
 
 switch (menu)
@@ -49,21 +50,15 @@ switch (menu)
                 Console.WriteLine("Digite idade do aluno");
                 var data = new { ra = Console.ReadLine(), nome = Console.ReadLine(), idade = Console.ReadLine() };
 
-                // Converter o objeto para JSON
-
                 string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
 
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = await client.PostAsync("http://localhost:3000/ALUNOS", content);
 
-                // Verificar se a requisição foi bem-sucedida
-
                 if (response.IsSuccessStatusCode)
                 {
-                    // Ler a resposta como uma string
                     string responseBody = await response.Content.ReadAsStringAsync();
-                    // Fazer algo com a resposta da API
                     Console.WriteLine(responseBody);
                 }
                 else
@@ -76,5 +71,7 @@ switch (menu)
                 Console.WriteLine("Ocorreu um erro: " + ex.Message);
             }
         }
+        goto menu;
+    case 3:
         break;
 }

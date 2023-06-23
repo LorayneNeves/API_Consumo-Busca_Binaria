@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp6
+namespace CriandoAPI_Revisao
 {
     public class Root
     {
@@ -12,5 +12,4 @@ namespace ConsoleApp6
         public string nome { get; set; }
         public string idade { get; set; }
     }
-
 }
