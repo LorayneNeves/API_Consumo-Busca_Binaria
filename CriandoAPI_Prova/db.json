@@ -1,0 +1,22 @@
+{
+  "paises": [
+    {
+      "id": 1,
+      "nome": "Brasil",
+      "participacoesEmCopa": 22,
+      "titulosCopa": 5
+    },
+    {
+      "id": 2,
+      "nome": "Argentina",
+      "participacoesEmCopa": 18,
+      "titulosCopa": 3
+    },
+    {
+      "nome": "Alemanha",
+      "participacoes": "16",
+      "titulos": "3",
+      "id": 3
+    }
+  ]
+}
