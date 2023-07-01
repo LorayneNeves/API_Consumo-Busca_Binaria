@@ -5,13 +5,13 @@ using System.Text;
 
 Menu:
 Console.WriteLine("Digite uma das opções");
-Console.WriteLine("1- Cadastrar produto");
+Console.WriteLine("1 - Cadastrar produto");
 Console.WriteLine("2 - Atualizar produto");
 Console.WriteLine("3 - Remover produto");
 Console.WriteLine("4 - Listar produto");
 Console.WriteLine("5 - Exportar para csv");
 Console.WriteLine("6 - Sair");
-int menu =int.Parse( Console.ReadLine());
+int menu = int.Parse( Console.ReadLine());
 Root root = new Root();
 switch (menu)
 {
@@ -20,7 +20,6 @@ switch (menu)
         {
             try
             {
-                // Criar um objeto para representar os dados a serem enviados na requisição
                 Console.WriteLine("Digite nome, descrição e preço para cadastrar: ");
                 var data = new { nome = Console.ReadLine(), descricao = Console.ReadLine(), preco = int.Parse(Console.ReadLine()) };
 
@@ -85,7 +84,6 @@ switch (menu)
         }
         goto Menu;
     case 3:
-
         Console.WriteLine("Digite o id do produto para deletar:");
         root.recebeid = int.Parse(Console.ReadLine());
         using (HttpClient client = new HttpClient())
@@ -103,7 +101,6 @@ switch (menu)
                 Root root1 = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(responseBody);
 
                 string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(url);
-
 
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             }
@@ -134,7 +131,6 @@ switch (menu)
 
                 foreach (var item in root1)
                 {
-
                     Console.WriteLine($"ID: {item.id}");
 
                     Console.WriteLine($"NOME: {item.nome}");
@@ -145,9 +141,7 @@ switch (menu)
                 }
                 Console.WriteLine(responseBody);
             }
-
             catch (HttpRequestException ex)
-
             {
                 Console.WriteLine($"Ocorreu um erro ao fazer a requisição HTTP: {ex.Message}");
             }
@@ -160,11 +154,9 @@ switch (menu)
     case 5:      
         string apiUrl = "http://192.168.1.9:3000/produtos";
         string csvFilePath = "C:\\Users\\loray\\Documents\\atividadeGrupo\\Desafio\\aplication\\arquivo.csv";
-
         try
         {
             string apiResponse = SendApiRequest(apiUrl);
-
             using (StreamWriter writer = new StreamWriter(csvFilePath, false, Encoding.UTF8))
             {
                 writer.Write(apiResponse);
@@ -176,7 +168,6 @@ switch (menu)
         {
             Console.WriteLine("Ocorreu um erro: " + ex.Message);
         }
-        
         string SendApiRequest(string url)
         {
             using (WebClient client = new WebClient())
@@ -184,7 +175,6 @@ switch (menu)
                 return client.DownloadString(url);
             }
         }
-
         goto Menu;
     case 6:
         Console.ReadKey();
